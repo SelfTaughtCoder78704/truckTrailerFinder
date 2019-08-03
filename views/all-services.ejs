@@ -1,0 +1,65 @@
+<% include partials/header.ejs %>
+<div class="arrowAnchor ">
+    <img class="arrowAnchor-img animated flip infinite" src="https://cdn2.iconfinder.com/data/icons/music-player-icons-filled/56/Down_Arrow_Filled-512.png" alt="">
+</div>
+
+<div class="text-center" >
+    <h1 style="margin: 30px auto;text-align: center;color: white;font-size:50px;">Our Services</h1>
+  
+</div>
+   
+    <div class="serviceWrap">
+    <% services.forEach(s => { %>
+       <div class="individualListing">
+           <div>
+               <div class="imgWrap" style="background: white;">
+                    <img src="<%= s.img %>" alt="">
+                    <div class="sticker">
+                            <p class="bigger">$<%= s.pricePerHour %></p>
+                            <p>Per Hour</p>
+                    </div>
+               </div>
+             
+              <div class="voteBox">
+                <div >
+                    <p>VOTES: <span class="vote"><%= s.voteCount %></span></p>
+                    <p>Used this service before? <br> Vote Up:</p>
+                </div>
+                <div>
+                    <form action="/vote/up/<%= s._id %>" method="POST">
+                        
+                        <button class="voteBtn"><i class="fas fa-plus"></i></button>
+                    </form>
+                    <p>All Votes Are Final</p>
+                </div>
+              </div>
+           </div>
+            <h4><%= s.typeOfTrailer %></h4>
+            <p><%= s.serviceArea %></p>
+            <button class="pulse2"><a  style="color: white" href="/services/<%= s._id %>">Take A Look</a></button>
+            <hr>
+            
+            <p>ADD YOUR REVIEW</p>
+            <form id="reviewForm" action="/services/reviews/<%= s._id %>" method="POST">
+               <div class="forminside">
+                <textarea cols="30"required rows="5" type="text" name="review" placeholder="New review"></textarea>
+                <br>
+                <button class="pulse2">Add A Review</button>
+               </div>
+            </form>
+            <hr>
+            <p>USER REVIEWS</p>
+            <div class="reviews">
+                <ul>
+                    <% for(let i = 0; i < s.reviews.length; i++){ %>
+                        <li><p>@<%= s.reviews[i].user %> - <%= s.reviews[i].review %></p></li>
+                    <% } %>
+                </ul>
+
+            </div>
+           
+       </div>
+    <% }) %>
+    </div>
+   
+<% include partials/footer.ejs %>

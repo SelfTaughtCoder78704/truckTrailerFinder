@@ -1,0 +1,27 @@
+<% include partials/header.ejs %>
+
+<form action="/services" method="POST" class="form">
+  <% include ./partials/messages %>
+    <h1 style="font-size: 50px">Got a service to offer? Add it here...</h1>
+   <div class="formWrap pulse">
+   
+    <button onclick="getLocation()">Set your location</button>
+    <input type="text" id="lat" name='lat' readonly="readonly" placeholder="latitude" required>
+    <input type="text" id="long" name="long" readonly='readonly' placeholder="longitude" required>
+      <input type="text" name="trailerType"  placeholder="Type Of Trailer" required>
+  
+    <input type="text" name="truckType" placeholder="Type Of Truck"required>
+    <input type="number" name="price"  placeholder="Price Per Hour"required>
+    <input type="text" name="contact" placeholder="Contact Information"required>
+    
+    <textarea name="description" id="" cols="30" rows="5" placeholder="Description"required></textarea>
+     <img id="messIm" src="https://cdn-s3.si.com/images/Pull_quote_style_3_.png" alt="">
+   <div class="formBottom">
+  
+      <button id="submit">Submit</button>
+     </div>
+    </div>
+  </form>
+
+  <div id="map"></div>
+<% include partials/footer.ejs %>

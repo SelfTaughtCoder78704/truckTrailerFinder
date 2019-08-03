@@ -1,0 +1,53 @@
+<% include partials/header.ejs %>
+   
+    <button class="pulse2"style="width: 10%; float: left;"><a style="color: white;" href="/services">Back To Services</a></button>
+  
+  
+       <div class="individualListingPlus">
+           <div>
+               <div class="imgWrap">
+                    <img src="<%= service.img %>" alt="">
+                    <div class="sticker">
+                            <p class="bigger">$<%=service.pricePerHour %></p>
+                            <p>Per Hour</p>
+                    </div>
+               </div>
+             
+                
+           </div>
+          
+            <h4><%=service.typeOfTrailer %></h4>
+            <p><%=service.serviceArea %></p>
+            <p><%=service.contactInfo %></p>
+           
+            <p><%=service.description %></p>
+            <hr>
+            
+          
+            <p>REVIEWS</p>
+            <div class="reviews">
+                <ul>
+                    <% for(let i = 0; i < service.reviews.length; i++){ %>
+                        <li><p>@<%= service.reviews[i].user %> - <%= service.reviews[i].review %></p></li>
+                    <% } %>
+                </ul>
+
+            </div>
+            <div>
+              <% if (user) { %> 
+                <% for(let i = 0; i <= user.userPost.length; i++){ %>
+                    <%  if(user.userPost[i] == service.id){ %>
+                        <div id="editBtn"class="animated bounceIn">
+                                <p>This is Your Post!</p>
+                                <a href="/services/<%= service.id %>/edit"> <button class="pulse2">Edit/Delete</button></a>
+                            
+                           </div>
+                    <%  } %>
+                <%  } %>
+            <% } %>
+             
+            </div>
+       </div>
+    
+   
+<% include partials/footer.ejs %>

@@ -1,0 +1,18 @@
+<% include partials/header.ejs %>
+
+<div class="container text-center form" style="color: white">
+        <h3 style="color:white">Add or change your photo</h3>
+        <button id="upload_widget" class="form-control "type="submit">Upload</button>
+        <form class="form-group" action="/addphoto/<%= service._id %>"  method="POST">
+        <input class="form-control" type="text" name="img" id="img" readonly="readonly">
+        <button class="form-control"type="submit">Submit</button>
+        
+        </form>
+            
+            <img class="img-fluid" style="width: 50%; margin: 0 auto;" src="<%= service.img %>" alt="">
+            <p>Current Photo</p>
+            <a href="/profile"><button>Stick With This, I'll Change Later</button> </a>
+      
+        
+</div>
+<% include partials/footer.ejs %>

@@ -1,0 +1,24 @@
+<% include partials/header.ejs %>
+<div id="profilePage">
+  
+<div class="container" style="color: white;">
+      
+     <div class="animated bounceIn">
+       <h1>Welcome <%= user.username %>!</h1>
+       <p><%= user.email %></p>
+     </div>
+       <div class="profileWrap">
+              <h2>Your Listings</h2>
+             <% posts.forEach(post => { %>
+                    <div>
+                           <img src="<%= post.img %>" width="300" alt="" style="background: white;">
+                           <p><%= post.typeOfTrailer %></p>
+                           <a href="/services/<%= post._id %>/edit"><button>Edit/Delete</button></a>
+                    </div>
+             <% }) %>
+       </div>
+       
+</div>
+
+<% include partials/footer.ejs %>
+

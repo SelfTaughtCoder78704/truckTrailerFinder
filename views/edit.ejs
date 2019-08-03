@@ -1,0 +1,56 @@
+<% include partials/header.ejs %>
+<div id="editBloc">
+        <div class="serviceWrap2 ">
+  
+                <div class="individualListing2">
+                    <div>
+                        <div class="imgWrap">
+                            <img src="<%= service.img %>" alt="">
+                             <div class="sticker">
+                                     <p class="bigger">$<%=service.pricePerHour %></p>
+                                     <p>Per Hour</p>
+                             </div>
+                        </div>
+                      
+                         
+                    </div>
+                   
+                     <h4><%=service.typeOfTrailer %></h4>
+                     <p><%=service.serviceArea %></p>
+                     <p><%=service.contactInfo %></p>
+                     <hr>
+                     
+                   
+                    
+                     <div>
+                        <a href="/services/<%= service.id %>/delete"> <button class="pulse2" style="background: rgb(221, 146, 8)">Delete Forever</button></a>
+                     </div>
+                </div>
+             </div>
+    <div class="formsize">
+            <form action="/services/<%= service._id %>/edit" method="POST" class="form" style="width: 100%;">
+          
+  
+                <h1 style="font-size: 50px">Edit Your <br> <%= service.typeOfTrailer %></h1>
+               <div class="formWrap pulse">
+                   
+                  <input type="text" value="<%= service.typeOfTrailer %>" name="trailerType" placeholder="Type Of Trailer" required>
+              
+                <input type="text"value="<%= service.typeOfTruck %>"  name="truckType" placeholder="Type Of Truck"required>
+                <input type="number"value="<%= service.pricePerHour %>"  name="price"  placeholder="Price Per Hour"required>
+                <input type="text"value="<%= service.contactInfo %>"  name="contact" placeholder="Contact Information"required>
+                <input type="text"value="<%= service.serviceArea %>"  name="serviceArea" placeholder="Service Area"required>
+                <textarea  name="description" id="" cols="30" rows="5" placeholder="<%= service.description %>"required></textarea>
+                 <img id="messIm" src="https://cdn-s3.si.com/images/Pull_quote_style_3_.png" alt="">
+               <div class="formBottom">
+              
+                  <button id="submit">Submit Changes</button>
+                 </div>
+                </div>
+              </form>
+              <a href="/addphoto/<%= service._id %>"><button>Change Photo</button></a>
+    </div>
+    
+
+</div>
+<% include partials/footer.ejs %>

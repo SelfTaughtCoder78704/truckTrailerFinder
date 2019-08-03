@@ -1,0 +1,18 @@
+<% include partials/header.ejs %>
+    <div class="homeWrap">
+        <div>
+            <h1>Truck-N-Trailer</h1>
+            <h2>Current Cities</h2>
+        </div>
+        <div class="gridly">
+            
+            <div class="serviceBtns">
+                <% city.forEach(s => { %>
+                    <div>
+                        <p><a href="/services/city/<%= s.cityName %>"><button><%= s.cityName %></button></a></p>
+                    </div>
+                <% }) %>
+            
+        </div>
+    </div>
+<% include partials/footer.ejs %>
